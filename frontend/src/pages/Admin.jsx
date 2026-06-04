@@ -150,6 +150,7 @@ export default function Admin() {
         setSuccess("Project updated successfully!");
       } else {
         projectData.createdAt = serverTimestamp();
+        projectData.createdBy = auth.currentUser?.email || 'unknown';
         await addDoc(collection(db, "projects"), projectData);
         setSuccess("Project created successfully!");
       }

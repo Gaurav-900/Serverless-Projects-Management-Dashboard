@@ -478,3 +478,30 @@ exports.deleteSection = functions.https.onRequest(async (req, res) => {
     });
   }
 });
+
+// Scheduled function to clean up recruiter's projects after 5 minutes
+exports.cleanupRecruiterProjects = functions.pubsub.schedule('every 2 minutes').onRun(async (context) => {
+  const fiveMinutesAgoMillis = Date.now() - 5 * 60 * 1000;
+  try {
+    const snapshot = await admin.firestore().collection('projects').where('createdBy', '==', 'recruitertest@mail.com').get();
+    if (snapshot.empty) return null;
+    let deletedCount = 0;
+    const batch = admin.firestore().batch();
+    snapshot.docs.forEach(doc => {
+      const data = doc.data();
+      if (data.createdAt && data.createdAt.toMillis() < fiveMinutesAgoMillis) {
+        batch.delete(doc.ref);
+        deletedCount++;
+      }
+    });
+    if (deletedCount > 0) {
+      await batch.commit();
+      console.log("Deleted  recruiter projects.");
+    }
+    return null;
+  } catch (error) {
+    console.error('Error in cleanupRecruiterProjects:', error);
+    return null;
+  }
+});
+
