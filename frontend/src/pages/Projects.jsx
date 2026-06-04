@@ -303,7 +303,7 @@ export default function Projects() {
             className="text-4xl font-bold"
             style={{ fontFamily: 'Outfit, sans-serif' }}
           >
-            My <span className="gradient-text">Projects</span>
+            GS- <span className="gradient-text">Projects</span>
           </h1>
           {projects.length > 0 && (
             <span
