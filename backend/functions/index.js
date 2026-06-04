@@ -479,8 +479,10 @@ exports.deleteSection = functions.https.onRequest(async (req, res) => {
   }
 });
 
+const { onSchedule } = require("firebase-functions/v2/scheduler");
+
 // Scheduled function to clean up recruiter's projects after 5 minutes
-exports.cleanupRecruiterProjects = functions.pubsub.schedule('every 2 minutes').onRun(async (context) => {
+exports.cleanupRecruiterProjects = onSchedule("every 2 minutes", async (event) => {
   const fiveMinutesAgoMillis = Date.now() - 5 * 60 * 1000;
   try {
     const snapshot = await admin.firestore().collection('projects').where('createdBy', '==', 'recruitertest@mail.com').get();
@@ -496,7 +498,7 @@ exports.cleanupRecruiterProjects = functions.pubsub.schedule('every 2 minutes').
     });
     if (deletedCount > 0) {
       await batch.commit();
-      console.log("Deleted  recruiter projects.");
+      console.log(`Deleted ${deletedCount} recruiter projects.`);
     }
     return null;
   } catch (error) {

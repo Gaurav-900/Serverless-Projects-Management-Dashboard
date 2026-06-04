@@ -210,73 +210,68 @@ export default function EditProject() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <div className="bg-white shadow rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Edit Project</h2>
+    <div className="max-w-3xl mx-auto py-8">
+      <div className="glass-card p-8" style={{ borderRadius: '20px' }}>
+        <div className="mb-8">
+          <h2 className="text-xl font-bold mb-1" style={{ fontFamily: 'Outfit, sans-serif', color: '#f1f5f9' }}>
+            Edit Project
+          </h2>
+          <p style={{ color: '#475569', fontSize: '13px' }}>
+            Update the project details below.
+          </p>
+        </div>
         
         {error && (
-          <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500">
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div className="ml-3">
-                <p className="text-sm text-red-700">{error}</p>
-              </div>
-            </div>
+          <div className="toast-error mb-6 animate-slide-down">
+            <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            </svg>
+            <span>{error}</span>
           </div>
         )}
         
         {success && (
-          <div className="mb-4 p-4 bg-green-50 border-l-4 border-green-500">
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div className="ml-3">
-                <p className="text-sm text-green-700">{success}</p>
-              </div>
-            </div>
+          <div className="toast-success mb-6 animate-slide-down">
+            <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            <span>{success}</span>
           </div>
         )}
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-              Project Title <span className="text-red-500">*</span>
+            <label htmlFor="title" className="form-label block mb-2">
+              Project Title <span style={{ color: '#f43f5e' }}>*</span>
             </label>
             <input
               type="text"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="form-input w-full"
               required
             />
           </div>
           
           <div>
-            <label htmlFor="brief" className="block text-sm font-medium text-gray-700">
-              Brief Description (Shown on project cards) <span className="text-red-500">*</span>
+            <label htmlFor="brief" className="form-label block mb-2">
+              Brief Description (Shown on project cards) <span style={{ color: '#f43f5e' }}>*</span>
             </label>
             <input
               type="text"
               id="brief"
               value={brief}
               onChange={(e) => setBrief(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="form-input w-full"
               placeholder="A short, one-line description of the project..."
               required
             />
-            <p className="mt-1 text-xs text-gray-500">This will be shown under the project title on the main projects page.</p>
+            <p className="mt-2 text-xs" style={{ color: '#475569' }}>This will be shown under the project title on the main projects page.</p>
           </div>
 
           <div>
-            <label htmlFor="details" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="details" className="form-label block mb-2">
               Project Details (Shown on project detail page)
             </label>
             <textarea
@@ -284,14 +279,13 @@ export default function EditProject() {
               rows={8}
               value={details}
               onChange={(e) => setDetails(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="form-input w-full"
               placeholder="Detailed information about the project that will be shown on the project detail page..."
             />
-            <p className="mt-1 text-xs text-gray-500">You can use HTML tags for formatting.</p>
+            <p className="mt-2 text-xs" style={{ color: '#475569' }}>You can use HTML tags for formatting.</p>
           </div>
 
-          <div>
-            <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="location" className="form-label block mb-2">
               Location
             </label>
             <input
@@ -299,39 +293,40 @@ export default function EditProject() {
               id="location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="form-input w-full"
               placeholder="e.g., New York, NY"
             />
-          </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="form-label block mb-2">
               Status
             </label>
             <div className="flex space-x-4">
               <label className="inline-flex items-center">
                 <input
                   type="radio"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  className="h-4 w-4 rounded-full"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                   checked={status === 'active'}
                   onChange={() => setStatus('active')}
                 />
-                <span className="ml-2 text-gray-700">Active</span>
+                <span className="ml-2 text-sm" style={{ color: '#f1f5f9' }}>Active</span>
               </label>
               <label className="inline-flex items-center">
                 <input
                   type="radio"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  className="h-4 w-4 rounded-full"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                   checked={status === 'inactive'}
                   onChange={() => setStatus('inactive')}
                 />
-                <span className="ml-2 text-gray-700">Inactive</span>
+                <span className="ml-2 text-sm" style={{ color: '#f1f5f9' }}>Inactive</span>
               </label>
             </div>
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="form-label block mb-2">
               Sections
             </label>
             <div className="space-y-2">
@@ -342,7 +337,8 @@ export default function EditProject() {
                     <input
                       id={`section-${section.id}`}
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      className="h-4 w-4 rounded"
+                      style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                       checked={sections.includes(section.id)}
                       onChange={(e) => {
                         if (e.target.checked) {
@@ -352,7 +348,7 @@ export default function EditProject() {
                         }
                       }}
                     />
-                    <label htmlFor={`section-${section.id}`} className="ml-2 block text-sm text-gray-700">
+                    <label htmlFor={`section-${section.id}`} className="ml-2 block text-sm" style={{ color: '#f1f5f9' }}>
                       {section.name || section.id}
                     </label>
                   </div>
@@ -361,14 +357,14 @@ export default function EditProject() {
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="form-label block mb-2">
               Project Images
             </label>
             
             {/* Existing Images */}
             {existingImages.length > 0 && (
               <div className="mb-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-2">Current Images</h4>
+                <h4 className="text-sm font-medium mb-2" style={{ color: '#e2e8f0' }}>Current Images</h4>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {existingImages.map((imageUrl, index) => (
                     <div key={index} className="relative group">
@@ -395,13 +391,14 @@ export default function EditProject() {
             
             {/* New Images */}
             <div className="mt-4">
-              <h4 className="text-sm font-medium text-gray-700 mb-2">
+              <h4 className="text-sm font-medium mb-2" style={{ color: '#e2e8f0' }}>
                 {existingImages.length > 0 ? 'Add More Images' : 'Upload Images'}
               </h4>
-              <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+              <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed rounded-xl" style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
                 <div className="space-y-1 text-center">
                   <svg
-                    className="mx-auto h-12 w-12 text-gray-400"
+                    className="mx-auto h-12 w-12"
+                    style={{ color: '#64748b' }}
                     stroke="currentColor"
                     fill="none"
                     viewBox="0 0 48 48"
@@ -414,10 +411,10 @@ export default function EditProject() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <div className="flex text-sm text-gray-600">
+                  <div className="flex justify-center text-sm" style={{ color: '#94a3b8' }}>
                     <label
                       htmlFor="file-upload"
-                      className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none"
+                      className="relative cursor-pointer rounded-md font-medium text-blue-400 hover:text-blue-300 focus-within:outline-none"
                     >
                       <span>Upload files</span>
                       <input
@@ -432,7 +429,7 @@ export default function EditProject() {
                     </label>
                     <p className="pl-1">or drag and drop</p>
                   </div>
-                  <p className="text-xs text-gray-500">PNG, JPG, GIF up to 5MB</p>
+                  <p className="text-xs" style={{ color: '#64748b' }}>PNG, JPG, GIF up to 5MB</p>
                 </div>
               </div>
               
@@ -455,7 +452,7 @@ export default function EditProject() {
               {/* Preview of new files to be uploaded */}
               {files.length > 0 && (
                 <div className="mt-4">
-                  <h4 className="text-sm font-medium text-gray-700 mb-2">New Images to Upload</h4>
+                  <h4 className="text-sm font-medium mb-2" style={{ color: '#e2e8f0' }}>New Images to Upload</h4>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {files.map((file, index) => (
                       <div key={index} className="relative group">
@@ -482,23 +479,23 @@ export default function EditProject() {
             </div>
           </div>
           
-          <div className="flex justify-end space-x-3 pt-4">
+          <div className="flex justify-end space-x-3 pt-6 mt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
             <button
               type="button"
               onClick={() => navigate(-1)}
               disabled={isUploading}
-              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+              className="btn-ghost flex-1"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isUploading}
-              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+              className="btn-primary flex-1 flex justify-center items-center gap-2"
             >
               {isUploading ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
