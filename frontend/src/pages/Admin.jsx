@@ -19,7 +19,7 @@ export default function Admin() {
   const [error, setError] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [success, setSuccess] = useState("");
-  const [sections, setSections] = useState(["recent", "featured"]);
+  const [sections, setSections] = useState([]);
   const [availableSections, setAvailableSections] = useState([]);
   const [editingProject, setEditingProject] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -74,26 +74,41 @@ export default function Admin() {
         });
         if (res.ok) {
           const data = await res.json();
-          setAvailableSections(data.sections || []);
+          const loadedSections = data.sections || [];
+          setAvailableSections(loadedSections);
+          // Set defaults based on loaded sections
+          const defaultIds = loadedSections
+            .filter(s => s.id === 'recent' || s.id === 'featured' || (s.name && (s.name.toLowerCase().includes('recent') || s.name.toLowerCase().includes('featured'))))
+            .map(s => s.id);
+          setSections(defaultIds.length > 0 ? defaultIds : ["recent", "featured"]);
         } else {
           setAvailableSections([
             { id: 'featured', name: 'Featured Projects' },
             { id: 'recent', name: 'Recent Projects' }
           ]);
+          setSections(["recent", "featured"]);
         }
       } catch {
         setAvailableSections([
           { id: 'featured', name: 'Featured Projects' },
           { id: 'recent', name: 'Recent Projects' }
         ]);
+        setSections(["recent", "featured"]);
       }
     };
     fetchSections();
   }, []);
 
+  const getDefaultSections = () => {
+    const defaultIds = availableSections
+      .filter(s => s.id === 'recent' || s.id === 'featured' || (s.name && (s.name.toLowerCase().includes('recent') || s.name.toLowerCase().includes('featured'))))
+      .map(s => s.id);
+    return defaultIds.length > 0 ? defaultIds : ["recent", "featured"];
+  };
+
   const resetForm = () => {
     setTitle(""); setBrief(""); setDetails(""); setLocation("");
-    setFiles([]); setSections(["recent", "featured"]); setStatus("active");
+    setFiles([]); setSections(getDefaultSections()); setStatus("active");
     setEditingProject(null); setIsEditing(false); setError(""); setSuccess("");
   };
 
