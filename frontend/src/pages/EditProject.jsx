@@ -179,7 +179,7 @@ export default function EditProject() {
         details: details.trim(),
         location: location.trim(),
         imageUrls: allImageUrls,
-        sections: sections.length > 0 ? sections : ['recent'],
+        sections: sections.length > 0 ? sections : ['recent', 'featured'],
         status,
         updatedAt: new Date()
       });

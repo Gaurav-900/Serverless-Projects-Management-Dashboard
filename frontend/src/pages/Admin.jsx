@@ -19,7 +19,7 @@ export default function Admin() {
   const [error, setError] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [success, setSuccess] = useState("");
-  const [sections, setSections] = useState(["recent"]);
+  const [sections, setSections] = useState(["recent", "featured"]);
   const [availableSections, setAvailableSections] = useState([]);
   const [editingProject, setEditingProject] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -93,7 +93,7 @@ export default function Admin() {
 
   const resetForm = () => {
     setTitle(""); setBrief(""); setDetails(""); setLocation("");
-    setFiles([]); setSections(["recent"]); setStatus("active");
+    setFiles([]); setSections(["recent", "featured"]); setStatus("active");
     setEditingProject(null); setIsEditing(false); setError(""); setSuccess("");
   };
 
@@ -142,7 +142,7 @@ export default function Admin() {
       const projectData = {
         title: title.trim(), brief: brief.trim(),
         details: details.trim(), location: location.trim(),
-        imageUrls, sections: sections.length > 0 ? sections : ['recent'],
+        imageUrls, sections: sections.length > 0 ? sections : ['recent', 'featured'],
         status, updatedAt: serverTimestamp()
       };
       if (isEditing && editingProject) {
