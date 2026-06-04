@@ -220,8 +220,8 @@ const Projects = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter">Our Projects</h1>
               <p className="mt-4 max-w-2xl text-lg sm:text-xl opacity-90">
                 {sections.length > 0 
-                  ? sections[0].description || 'Explore our portfolio of successful projects.'
-                  : 'Explore our portfolio of successful projects.'
+                  ? sections[0].description || 'Explore our Project management Admin dashboard of successful projects.'
+                  : 'Explore our Project management Admin dashboard of successful projects.'
                 }
               </p>
             </div>

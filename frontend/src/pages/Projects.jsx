@@ -297,7 +297,7 @@ export default function Projects() {
     <div className="py-8 animate-fade-up">
       {/* Hero Header */}
       <div className="mb-12">
-        <div className="section-label mb-3">Portfolio</div>
+        <div className="section-label mb-3">Project management Admin dashboard</div>
         <div className="flex flex-wrap items-end gap-4 mb-3">
           <h1
             className="text-4xl font-bold"

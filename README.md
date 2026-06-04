@@ -1,18 +1,18 @@
-# Serverless Portfolio & Admin Dashboard
+# Serverless Project management Admin dashboard & Admin Dashboard
 
-![Portfolio Status](https://img.shields.io/badge/Status-Active-success)
+![Project management Admin dashboard Status](https://img.shields.io/badge/Status-Active-success)
 ![Architecture](https://img.shields.io/badge/Architecture-Serverless-blue)
 ![Stack](https://img.shields.io/badge/Stack-React%20%7C%20Firebase%20%7C%20Tailwind-teal)
 
-A beautiful, fully dynamic, and serverless portfolio dashboard built to let you manage and showcase your projects with ease. The project features a premium glassmorphism design, real-time updates, and a secure Admin panel.
+A beautiful, fully dynamic, and serverless Project management Admin dashboard dashboard built to let you manage and showcase your projects with ease. The project features a premium glassmorphism design, real-time updates, and a secure Admin panel.
 
 ## ✨ Features
 
-### Public Portfolio
+### Public Project management Admin dashboard
 - **Dynamic Categories**: Projects are categorized under dynamic sections (e.g., "Featured", "Recent") controlled entirely by the admin.
 - **Glassmorphism Design**: Modern, premium aesthetics with blurred backgrounds, gradients, and subtle hover animations.
 - **Responsive & Fast**: Fully responsive layout optimized for all screen sizes, built with React and Vite.
-- **Real-time Synchronization**: Uses Firestore snapshot listeners to update the portfolio the instant a change is made by the admin.
+- **Real-time Synchronization**: Uses Firestore snapshot listeners to update the Project management Admin dashboard the instant a change is made by the admin.
 
 ### Secure Admin Dashboard
 - **Authentication**: Protected `/admin` route requiring secure email/password login via Firebase Auth.

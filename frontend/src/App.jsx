@@ -46,7 +46,7 @@ function NavBar() {
               className="font-bold text-lg tracking-tight"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
-              <span className="gradient-text">Portfolio</span>
+              <span className="gradient-text">Project management Admin dashboard</span>
               <span style={{ color: '#94a3b8' }}> CMS</span>
             </span>
           </Link>

@@ -1,7 +1,7 @@
-# Reusable Project Admin Dashboard & Portfolio
+# Reusable Project Admin Dashboard & Project management Admin dashboard
 
 ## 📖 Overview
-This project is a **Serverless Full-Stack Portfolio & Admin Dashboard**. It is designed to be a highly reusable, beautifully styled platform where professionals can showcase their work dynamically. Instead of hardcoding projects into HTML/React, this system provides a secure Admin Dashboard where the owner can add, edit, and categorize projects on the fly.
+This project is a **Serverless Full-Stack Project management Admin dashboard & Admin Dashboard**. It is designed to be a highly reusable, beautifully styled platform where professionals can showcase their work dynamically. Instead of hardcoding projects into HTML/React, this system provides a secure Admin Dashboard where the owner can add, edit, and categorize projects on the fly.
 
 The design emphasizes a premium, modern aesthetic using **Glassmorphism**, dynamic gradients, micro-animations, and a responsive layout.
 
@@ -27,7 +27,7 @@ The project recently transitioned to a 100% serverless architecture to minimize 
 
 The application is split into two main experiences: the **Public View** and the **Admin Dashboard**.
 
-### 1. The Public Portfolio (What visitors see)
+### 1. The Public Project management Admin dashboard (What visitors see)
 * **Dynamic Sections**: Projects are categorized under dynamic headings (e.g., "Featured", "Recent", "Web Development") that are completely controlled by the Admin.
 * **Stunning UI/UX**: Projects are displayed as interactive cards with hover effects, gradient borders, and staggered loading animations.
 * **Project Details View**: Clicking a project opens a dedicated details page showing full descriptions, status badges (Active/Completed), timestamps, and image galleries.

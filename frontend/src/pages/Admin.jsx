@@ -192,7 +192,7 @@ export default function Admin() {
           Admin <span className="gradient-text">Panel</span>
         </h1>
         <p style={{ color: '#475569', fontSize: '14px', marginTop: '6px' }}>
-          Manage your portfolio projects and display sections.
+          Manage your Project management Admin dashboard projects and display sections.
         </p>
       </div>
 
@@ -222,7 +222,7 @@ export default function Admin() {
                 {isEditing ? 'Edit Project' : 'Add New Project'}
               </h2>
               <p style={{ color: '#475569', fontSize: '13px' }}>
-                {isEditing ? 'Update the project details below.' : 'Fill in the details to add a new project to the portfolio.'}
+                {isEditing ? 'Update the project details below.' : 'Fill in the details to add a new project to the Project management Admin dashboard.'}
               </p>
             </div>
 

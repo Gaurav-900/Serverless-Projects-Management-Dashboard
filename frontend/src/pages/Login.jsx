@@ -92,8 +92,8 @@ export default function Login() {
           </h1>
           <p style={{ color: '#64748b', fontSize: '14px' }}>
             {isLogin
-              ? 'Sign in to manage your portfolio projects'
-              : 'Get started with Portfolio CMS today'}
+              ? 'Sign in to manage your Project management Admin dashboard projects'
+              : 'Get started with Project management Admin dashboard today'}
           </p>
         </div>
 
@@ -222,7 +222,7 @@ export default function Login() {
         </div>
 
         <p className="text-center mt-6 text-xs" style={{ color: '#334155' }}>
-          Portfolio CMS · Secure Admin Dashboard
+          Project management Admin dashboard · Secure Admin Dashboard
         </p>
       </div>
     </div>
